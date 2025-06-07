@@ -3,37 +3,17 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="AutomaticModuleUnloader">
+    <loaded-modules>
+      <module name="Employee_Management" />
+    </loaded-modules>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ccd7fa3d-1f06-4cb9-a465-66767099273e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Employee_Management.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/eslint.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/vite.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/App.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/react.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/components/EmployeeForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/components/EmployeeList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/main.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/vite.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/employee/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/employee/SpringBootProjectApplication.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,26 +23,32 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2yB5PPIKkl0Uw4nHMcMt4g72KVB" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.SpringBootProjectApplication.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.SpringBootProjectApplication.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="ccd7fa3d-1f06-4cb9-a465-66767099273e" name="Changes" comment="" />
