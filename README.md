@@ -17,7 +17,7 @@ This is a simple **Employee Management System** built using ** JAVA Spring Boot*
 - **Frontend**: React / Vite 
 - **Data Store**: In-memory (using `HashMap<Long, User>`)
 
-## 🧾 API Endpoints
+## API Endpoints
 
 | Method | Endpoint        | Description           |
 |--------|------------------|-----------------------|
