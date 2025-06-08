@@ -1,26 +1,20 @@
-// EmployeeList.jsx
-
+// src/components/EmployeeList.jsx
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
 import EmployeeForm from "./EmployeeForm";
+
+const API_BASE = "http://localhost:8080/api/users";
 
 const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
-  const [selectedEmployee, setSelectedEmployee] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [fetchError, setFetchError] = useState("");
+  const [editingEmployee, setEditingEmployee] = useState(null);
 
   const fetchEmployees = async () => {
-    setLoading(true);
-    setFetchError("");
     try {
-      const res = await axios.get("http://localhost:8080/api/users");
+      const res = await axios.get(API_BASE);
       setEmployees(res.data);
     } catch (err) {
-      console.error("Failed to fetch employees", err.response || err.message || err);
-      setFetchError("❌ Failed to load employees.");
-    } finally {
-      setLoading(false);
+      console.error("Error fetching employees", err);
     }
   };
 
@@ -28,51 +22,57 @@ const EmployeeList = () => {
     fetchEmployees();
   }, []);
 
-  const deleteEmployee = async (id) => {
-    if (!window.confirm("Are you sure you want to delete this employee?")) return;
-
+  const saveEmployee = async (employee) => {
     try {
-      await axios.delete(`http://localhost:8080/api/users/${id}`);
-      setEmployees((prev) => prev.filter((emp) => emp.id !== id));
-      if(selectedEmployee && selectedEmployee.id === id){
-        setSelectedEmployee(null);
+      if (employee.id) {
+        // Update
+        await axios.put(`${API_BASE}/${employee.id}`, employee);
+      } else {
+        // Create
+        await axios.post(API_BASE, employee);
       }
+      fetchEmployees();
+      setEditingEmployee(null);
     } catch (err) {
-      console.error("Delete failed", err.response || err.message || err);
-      alert("❌ Failed to delete employee. Please try again.");
-      fetchEmployees(); // fallback to sync with backend
+      console.error("Error saving employee", err);
     }
   };
 
-  const handleEdit = (employee) => {
-    setSelectedEmployee(employee);
+  const deleteEmployee = async (id) => {
+    try {
+      await axios.delete(`${API_BASE}/${id}`);
+      fetchEmployees();
+    } catch (err) {
+      console.error("Error deleting employee", err);
+    }
   };
 
   return (
     <div>
-      <h2>Employee List</h2>
+      <h2>Employee Management</h2>
+      <EmployeeForm onSave={saveEmployee} editingEmployee={editingEmployee} clearEdit={() => setEditingEmployee(null)} />
 
-      {loading && <p>Loading employees...</p>}
-      {fetchError && <p style={{ color: "red" }}>{fetchError}</p>}
-
-      {!loading && employees.length === 0 && <p>No employees available.</p>}
-
-      {employees.map((emp) => (
-        <div key={emp.id} style={{ marginBottom: "10px" }}>
-          <p>
-            <strong>{emp.name}</strong> — {emp.email} — {emp.department}
-          </p>
-          <button onClick={() => handleEdit(emp)}>Edit</button>{" "}
-          <button onClick={() => deleteEmployee(emp.id)}>Delete</button>
-        </div>
-      ))}
-
-      <EmployeeForm
-        selectedEmployee={selectedEmployee}
-        setSelectedEmployee={setSelectedEmployee}
-        employees={employees}
-        setEmployees={setEmployees}
-      />
+      <table border="1" cellPadding="8">
+        <thead>
+          <tr>
+            <th>ID</th><th>Name</th><th>Email</th><th>Department</th><th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {employees.map((emp) => (
+            <tr key={emp.id}>
+              <td>{emp.id}</td>
+              <td>{emp.name}</td>
+              <td>{emp.email}</td>
+              <td>{emp.department}</td>
+              <td>
+                <button onClick={() => setEditingEmployee(emp)}>Edit</button>
+                <button onClick={() => deleteEmployee(emp.id)}>Delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

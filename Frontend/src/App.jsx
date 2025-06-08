@@ -1,12 +1,10 @@
-import React from 'react';
-import EmployeeForm from './components/EmployeeForm';
-import EmployeeList from './components/EmployeeList';
+// src/App.jsx
+import React from "react";
+import EmployeeList from "./components/EmployeeList";
 
 const App = () => {
   return (
-    <div style={{ padding: '2rem' }}>
-      <h1>Employee Management System</h1>
-      <EmployeeForm />
+    <div className="App">
       <EmployeeList />
     </div>
   );

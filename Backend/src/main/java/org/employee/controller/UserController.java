@@ -3,12 +3,16 @@ package org.employee.controller;
 import org.employee.model.User;
 import org.springframework.web.bind.annotation.*;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+
 import java.util.*;
 
 @RestController
 @RequestMapping("/api/users")
 
-@CrossOrigin(origins = "http://localhost:5175") //to accept request from front end running at local host port 5173
+@CrossOrigin(origins = "http://localhost:5173") //to accept request from front end running at local host port 5173
 
 public class UserController {
 
@@ -16,15 +20,12 @@ public class UserController {
     private Long idCounter = 1L;
 
     @PostMapping
-    public Map<String, Object> addUser(@RequestBody User user) {
+    public ResponseEntity<User> addUser(@RequestBody User user) {
         user.setId(idCounter++);
         EmployeeDB.put(user.getId(), user);
-
-        Map<String, Object> response = new HashMap<>();
-        response.put("message", "Employee added");
-        response.put("id", user.getId());
-        return response;
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
+
 
 
 
@@ -35,22 +36,25 @@ public class UserController {
 
     //PUT - Update user
     @PutMapping("/{id}")
-    public String updateUser(@PathVariable Long id, @RequestBody User user){
-        if(!EmployeeDB.containsKey(id)){
-            return "Employee not found";
+    public ResponseEntity<User> updateUser(@PathVariable("id") Long id, @RequestBody User updatedUser) {
+        User existingUser = EmployeeDB.get(id);
+        if (existingUser == null) {
+            return ResponseEntity.notFound().build();
         }
-
-        user.setId(id);
-        EmployeeDB.put(id, user);
-        return "Employee updated";
+        updatedUser.setId(id);
+        EmployeeDB.put(id, updatedUser);
+        return ResponseEntity.ok(updatedUser);
     }
 
-    //DELETE - Delete user
+
+
     @DeleteMapping("/{id}")
-    public String deleteUser(@PathVariable Long id){
-        if(EmployeeDB.remove(id) !=null){
-            return "Employee Deleted";
+    public ResponseEntity<Void> deleteUser(@PathVariable("id") Long id) {
+        User existingUser = EmployeeDB.get(id);
+        if (existingUser == null) {
+            return ResponseEntity.notFound().build();
         }
-        return "Employee not found";
+        EmployeeDB.remove(id);
+        return ResponseEntity.noContent().build();
     }
 }
