@@ -2,7 +2,7 @@
 
 This is a simple **Employee Management System** built using ** JAVA Spring Boot** running on `http://localhost:8080` for the backend and a **frontend application** (React) running on `http://localhost:5173`.
 
-## Features
+### Features
 
 - Add new employees
 - View all employees
